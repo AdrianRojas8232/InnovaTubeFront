@@ -1,0 +1,43 @@
+<div class="hero"> 
+    <p-menubar class="menuSearch" >
+        <ng-template pTemplate="start">
+            <div class="contentSerch">
+                <input type="text" pInputText placeholder="Buscar" class="w-full" [(ngModel)]="buscar"  (keyup.enter)="buscarVideo()"/>
+                <div class="divBtnSearch">
+                    <p-button class="btnSearch" icon="pi pi-search" severity="info" (click)="buscarVideo()"></p-button>
+                </div>
+            </div>
+            
+        </ng-template>
+        <ng-template pTemplate="end">
+        </ng-template>
+    </p-menubar>
+    <div class="content" *ngIf="this.arrayVideos.length > 0" >
+        
+        <p-scrollPanel [style]="{ width: '100%', height: '90%' }">
+            <div class="container">
+                <div class="row align-items-center" >
+                    <div class="col-lg-4" *ngFor="let video of arrayVideos" style="margin-bottom: 2%; display: flex; justify-content: center;">
+                        <p-card class="videoCard" header="{{video.snippet.title}}" subheader="{{video.snippet.channelTitle}}" [style]="{ width: '360px' }">
+                            <ng-template pTemplate="header">
+                            <a [href]="'https://www.youtube.com/watch?v=' + video.id.videoId">
+                                <img alt="Card" src="{{video.snippet.thumbnails.medium.url}}" />
+                            </a>
+                            </ng-template>
+                            <ng-template pTemplate="content">
+                                <p-button class="favorito"  icon="pi pi-plus" [rounded]="true" [text]="true" [raised]="true" severity="secondary "></p-button>
+                              </ng-template>
+                        </p-card>
+                    </div>
+                </div>
+            </div>
+        </p-scrollPanel>
+    </div>
+  <div class="cube"></div>
+  <div class="cube"></div>
+  <div class="cube"></div>
+  <div class="cube"></div>
+  <div class="cube"></div>
+  <div class="cube"></div>
+</div>
+<p-toast position="bottom-center" key="bc"></p-toast>

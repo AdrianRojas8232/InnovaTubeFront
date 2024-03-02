@@ -1,0 +1,31 @@
+<p-sidebar [(visible)]="sidebarVisible">
+    <ng-template pTemplate="header">
+        <p class="title">
+            INNOVA TUBE
+        </p>
+    </ng-template>
+    <ng-template pTemplate="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-4">
+                    <p class="title">
+                        {{usuarioGuardado.usuario}}
+                    </p>
+                </div>
+                <div class="col-sm-12 col-md-4">
+                    <p class="title">
+                        {{usuarioGuardado.correo}}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="footer">
+        <div class="btnCerrarSesion">
+            <p-button label="Cerrar sesion" severity="danger" (click)="cerrarSesion()"></p-button>
+        </div>
+    </ng-template>
+</p-sidebar>
+<div class="sidebar-toggle-button">
+    <p-button class="btnSideBar" severity="info" (click)="mostrarMenu()" icon="pi pi-bars"></p-button>
+</div>

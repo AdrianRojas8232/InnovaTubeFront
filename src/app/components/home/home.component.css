@@ -1,0 +1,447 @@
+.hero {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    background-color: #001c55;
+  }
+
+  .contentSerch{
+    display: flex;
+    z-index: 5;
+  }
+
+  ::ng-deep .btnSearch button{
+    border-radius: 30px;
+  }
+
+  .divBtnSearch{
+    margin-left: 5%;
+  }
+
+  ::ng-deep .menuSearch{
+    position: absolute;
+    display: flex;
+    margin-top: 10px;
+    z-index: 2;
+  }
+
+  ::ng-deep .menuSearch .p-menubar{
+    background-color: #001c5500;
+    display: contents;
+  }
+
+  ::ng-deep .menuSearch{
+    display: flex;
+  }
+  
+  ::ng-deep .p-card .p-card-content{
+    padding: 0%;
+  }
+  
+  .card_login {
+      width: 80%;
+      max-width: 400px;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+      z-index: 2;
+      background: linear-gradient(to right, #ff8c00, #ff5f6d);
+      border-radius: 5%;
+  }
+  
+  .card_register {
+      width: 80%;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+      z-index: 2;
+      background: linear-gradient(to right, #ff8c00, #ff5f6d);
+      border-radius: 5%;
+  }
+  
+  .cube {
+      position: absolute;
+      top: 80vh;
+      left: 45vw;
+      width: 10px;
+      height: 10px;
+      border: solid 1px #6a0098;
+      transform-origin: top left;
+      transform: scale(0) rotate(0deg) translate(-50%, -50%);
+      animation: cube 12s ease-in forwards infinite;
+  }
+  
+  .cube:nth-child(2n) {
+    border-color: #0051f4;
+  }
+  .cube:nth-child(2) {
+    -webkit-animation-delay: 2s;
+            animation-delay: 2s;
+    left: 25vw;
+    top: 40vh;
+  }
+  .cube:nth-child(3) {
+    -webkit-animation-delay: 4s;
+            animation-delay: 4s;
+    left: 75vw;
+    top: 50vh;
+  }
+  .cube:nth-child(4) {
+    -webkit-animation-delay: 6s;
+            animation-delay: 6s;
+    left: 90vw;
+    top: 10vh;
+  }
+  .cube:nth-child(5) {
+    -webkit-animation-delay: 8s;
+            animation-delay: 8s;
+    left: 10vw;
+    top: 85vh;
+  }
+  .cube:nth-child(6) {
+    -webkit-animation-delay: 10s;
+            animation-delay: 10s;
+    left: 50vw;
+    top: 10vh;
+  }
+  
+  @-webkit-keyframes cube {
+    from {
+      -webkit-transform: scale(0) rotate(0deg) translate(-50%, -50%);
+              transform: scale(0) rotate(0deg) translate(-50%, -50%);
+      opacity: 1;
+    }
+    to {
+      -webkit-transform: scale(20) rotate(960deg) translate(-50%, -50%);
+              transform: scale(20) rotate(960deg) translate(-50%, -50%);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes cube {
+    from {
+      -webkit-transform: scale(0) rotate(0deg) translate(-50%, -50%);
+              transform: scale(0) rotate(0deg) translate(-50%, -50%);
+      opacity: 1;
+    }
+    to {
+      -webkit-transform: scale(20) rotate(960deg) translate(-50%, -50%);
+              transform: scale(20) rotate(960deg) translate(-50%, -50%);
+      opacity: 0;
+    }
+  }
+  
+  .form-label {
+      display: block;
+      margin-bottom: 5px;
+      margin-top: 5px;
+    }
+    
+    .form-input {
+      width: 100%;
+    }
+    
+    .password-recovery-link {
+      text-align: center;
+      color: #007BFF;
+      text-decoration: none;
+    }
+    
+    .password-recovery-link:hover {
+      text-decoration: underline;
+    }
+  
+    .button-link-container {
+      margin-top: 5%;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    ::ng-deep .password-container .p-component, .p-component {
+      width: 100% !important;
+    }
+  
+    @keyframes phoneVibrate {
+      0%, 100% {
+        transform: translate(0, 0);
+      }
+      25% {
+        transform: translate(-2px, 2px);
+      }
+      50% {
+        transform: translate(2px, -2px);
+      }
+      75% {
+        transform: translate(0, 0);
+      }
+    }
+    
+  
+  .phone-ring-animation {
+    position: absolute;
+      bottom: 9%;
+      right: 15%;
+      z-index: 3;
+  }
+  
+  .wrapper{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    width: fit-content;
+    height:auto;
+  }
+  button{
+    width:200px;
+    height:70px;
+    background: linear-gradient(to left top, #ff8c00 50%, #ff5f6d 50%);
+    border-style: none;
+    color:#fff;
+    font-size: 23px;
+    letter-spacing: 3px;
+    --font-family: "Inter var", sans-serif;
+    --font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    font-weight: 600;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    padding: 0px;
+    overflow: hidden;
+    transition: all .5s;
+    box-shadow: 0px 1px 2px rgba(0,0,0,.2);
+  }
+  button span{
+    position: absolute;
+    display: block;
+  }
+  button span:nth-child(1){
+    height: 3px;
+    width:200px;
+    top:0px;
+    left:-200px;
+    background: linear-gradient(to right, rgba(0,0,0,0), #6a0098);
+    border-top-right-radius: 1px;
+    border-bottom-right-radius: 1px;
+    animation: span1 2s linear infinite;
+    animation-delay: 1s;
+  }
+  
+  @keyframes span1{
+    0%{
+        left:-200px
+    }
+    100%{
+        left:200px;
+    }
+  }
+  button span:nth-child(2){
+    height: 70px;
+    width: 3px;
+    top:-70px;
+    right:0px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0), #6a0098);
+    border-bottom-left-radius: 1px;
+    border-bottom-right-radius: 1px;
+    animation: span2 2s linear infinite;
+    animation-delay: 2s;
+  }
+  @keyframes span2{
+    0%{
+        top:-70px;
+    }
+    100%{
+        top:70px;
+    }
+  }
+  button span:nth-child(3){
+    height:3px;
+    width:200px;
+    right:-200px;
+    bottom: 0px;
+    background: linear-gradient(to left, rgba(0,0,0,0), #6a0098);
+    border-top-left-radius: 1px;
+    border-bottom-left-radius: 1px;
+    animation: span3 2s linear infinite;
+    animation-delay: 3s;
+  }
+  @keyframes span3{
+    0%{
+        right:-200px;
+    }
+    100%{
+        right: 200px;
+    }
+  }
+  
+  button span:nth-child(4){
+    height:70px;
+    width:3px;
+    bottom:-70px;
+    left:0px;
+    background: linear-gradient(to top, rgba(0,0,0,0), #6a0098);
+    border-top-right-radius: 1px;
+    border-top-left-radius: 1px;
+    animation: span4 2s linear infinite;
+    animation-delay: 4s;
+  }
+  @keyframes span4{
+    0%{
+        bottom: -70px;
+    }
+    100%{
+        bottom:70px;
+    }
+  }
+  
+  button:hover{
+    transition: all .5s;
+    transform: rotate(-3deg) scale(1.1);
+    box-shadow: 0px 3px 5px rgba(0,0,0,.4);
+  }
+  button:hover span{
+    animation-play-state: paused;
+  }
+  
+  footer {
+    background-color: #222;
+    color: #fff;
+    font-size: 14px;
+    bottom: 0;
+    position: fixed;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 999;
+  }
+  
+  footer p {
+    margin: 10px 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida  Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+  footer .fa-heart{
+    color: red;
+  }
+  footer .fa-dev{
+    color: #fff;
+  }
+  footer .fa-twitter-square{
+  color:#1da0f1;
+  }
+  footer .fa-instagram{
+  color: #f0007c;
+  }
+  fotter .fa-linkedin{
+  color:#0073b1;
+  }
+  footer .fa-codepen{
+  color:#fff
+  }
+  footer a {
+    color: #3c97bf;
+    text-decoration: none;
+  margin-right:5px;
+  }
+  .youtubeBtn{
+    position: fixed;
+    left: 50%;
+  transform:translatex(-50%);
+    bottom: 45px;
+    cursor: pointer;
+    transition: all .3s;
+    vertical-align: middle;
+    text-align: center;
+    display: inline-block;
+  }
+  .youtubeBtn i{
+   font-size:20px;
+  float:left;
+  }
+  .youtubeBtn a{
+    color:#ff0000;
+    text-shadow: 0px 2px 5px rgba(0,0,0,.5);
+    animation: youtubeAnim 1000ms linear infinite;
+  float:right;
+  }
+  .youtubeBtn a:hover{
+  color:#c9110f;
+  transition:all .3s ease-in-out;
+  text-shadow: none;
+  }
+  .youtubeBtn i:active{
+  transform:scale(.9);
+  transition:all .3s ease-in-out;
+  }
+  .youtubeBtn span{
+    font-family: 'Lato';
+    font-weight: bold;
+    color: #fff;
+    display: block;
+    font-size: 12px;
+    float: right;
+    line-height: 20px;
+    padding-left: 5px;
+  
+  }
+  
+  @keyframes youtubeAnim{
+    0%,100%{
+      color:#c9110f;
+    }
+    50%{
+      color:#ff0000;
+    }
+  }
+  
+  ::ng-deep .p-sidebar-full {
+    background: linear-gradient(to left top, #ff8c00 50%, #ff5f6d 50%);
+  }
+
+  ::ng-deep  .p-card {
+    max-height: 390px !important;
+    min-height: 390px !important;
+  }
+
+  ::ng-deep .favorito button{
+    border-radius: 50%;
+  }
+
+  ::ng-deep .favorito{
+    display: flex;
+    justify-content: right;
+  }
+
+  a{
+    text-decoration: none;
+  }
+
+  .content{
+    width: 100%;
+    height: 100%;
+    padding-top: 15%;
+    padding-left: 5%;
+    padding-right: 5%;
+    z-index: 1;
+  }
+  
+  /* .videoCard{
+    cursor: pointer;
+  } */
+
+  ::ng-deep .videoCard .p-card .p-card-title{
+    font-size: 14px;
+  }
+
+  ::ng-deep .videoCard .p-card .p-card-body{
+    font-size: 14px;
+  }
+
+  ::ng-deep .videoCard img{
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }

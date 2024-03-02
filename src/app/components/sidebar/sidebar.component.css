@@ -1,0 +1,35 @@
+  ::ng-deep .p-sidebar-left {
+    background: linear-gradient(to left top, #ff8c00 50%, #ff5f6d 50%);
+  }
+
+  ::ng-deep .btnSideBar button {
+    margin-left: 1%;
+    margin-top: 1%;
+    border-radius: 30px;
+  }
+  
+  .title {
+    margin: 0;
+    margin-right: 50%;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+  }
+  
+  .p-button-sidebar {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+  }
+
+  .btnCerrarSesion{
+    display: flex;
+    justify-content: center;
+  }
+
+  
+.sidebar-toggle-button {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 999;
+}
