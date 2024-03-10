@@ -26,6 +26,7 @@ import { TooltipModule } from 'primeng/tooltip';
 import { DialogModule } from 'primeng/dialog';
 import { ScrollPanelModule } from 'primeng/scrollpanel';
 import { MenubarModule } from 'primeng/menubar';
+import { CalendarModule } from 'primeng/calendar';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { MenubarModule } from 'primeng/menubar';
     NgxCaptchaModule,
     DialogModule,
     ScrollPanelModule,
-    MenubarModule
+    MenubarModule,
+    CalendarModule
 
   ],
   providers: [

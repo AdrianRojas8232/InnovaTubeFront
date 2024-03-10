@@ -3,7 +3,7 @@
         <div class="flex flex-column gap-2">
 
             <span class="p-float-label">
-                <input class="form-input" pInputText id="email" aria-describedby="email-help" [(ngModel)]="login.usuario" type="email" name="email" />
+                <input class="form-input" pInputText id="email" aria-describedby="email-help" [(ngModel)]="login.correo " type="email" name="email" />
                 <label for="email">Correo Electronico</label>
             </span>
             
@@ -28,7 +28,7 @@
         <p-scrollPanel [style]="{ width: '100%', height: '250px' }" styleClass="custombar1">
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-12 col-md-4">
+                    <div class="col-sm-12 col-md-6">
                         <div class="flex flex-column gap-2">
                             <span class="p-float-label">
                                 <input class="form-input" pInputText id="username" aria-describedby="username-help" [(ngModel)]="register.nombre" type="email" name="text" />
@@ -36,52 +36,62 @@
                             </span>
                         </div>
                     </div>
-                    <div class="col-sm-12 col-md-4">
+                    <div class="col-sm-12 col-md-6">
+                        <span class="p-float-label">
+                            <p-calendar [(ngModel)]="register.fecha_nacimiento" inputId="fecha" dateFormat="dd/mm/yy"></p-calendar>
+                            <label for="fecha">Fecha nacimiento:</label>
+                        </span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-md-6">
                         <span class="p-float-label">
                             <input class="form-input" pInputText id="patermo" aria-describedby="patermo-help" [(ngModel)]="register.ap_paterno" type="text" name="paterno" />
                             <label for="paterno">Apellido Paterno</label>
                         </span>
                     </div>
-                    <div class="col-sm-12 col-md-4">
+                    <div class="col-sm-12 col-md-6">
                         <span class="p-float-label">
                             <input class="form-input" pInputText id="materno" aria-describedby="materno-help" [(ngModel)]="register.ap_materno" type="text" name="materno" />
                             <label for="materno">Apellido Materno</label>
                         </span>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-sm-12 col-md-4">
-                        <div class="flex flex-column gap-2">
-                            <span class="p-float-label">
-                                <input class="form-input" pInputText id="email" aria-describedby="email-help" [(ngModel)]="register.correo" type="email" name="email" />
-                                <label for="email">Correo Electronico</label>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-md-4">
+                <div class="row">                                                   
+                    <div class="col-sm-12 col-md-6">
                         <span class="p-float-label">
-                            <p-password class="contra" [(ngModel)]="register.contrasenia" [feedback]="true" [toggleMask]="true" pTooltip="La contraseña debe contener al menos una mayuscula, una minuscula, un numero y tener mas de 7 caracteres" tooltipPosition="right" ></p-password>
+                            <p-password class="contra" [(ngModel)]="register.contrasenia" [feedback]="true" [toggleMask]="false" pTooltip="La contraseña debe contener al menos una mayuscula, una minuscula, un numero y tener mas de 7 caracteres" tooltipPosition="right" ></p-password>
                             <label for="password">Contraseña</label>
                         </span>
                     </div>
-                    <div class="col-sm-12 col-md-4">
+                    <div class="col-sm-12 col-md-6">
                         <span class="p-float-label">
-                            <p-password class="contra" [(ngModel)]="register.confirmarContrasenia" [feedback]="false" [toggleMask]="true"></p-password>
+                            <p-password class="contra" [(ngModel)]="register.confirmarContrasenia" [feedback]="false" [toggleMask]="false"></p-password>
                             <label for="password">Confirmar Contraseña</label>
                         </span>
-                    </div>
+                    </div>   
                 </div>
-            </div>
-            <div class="container">
                 <div class="row">
-                    <div class="col-sm-12 col-md-4" style="margin-top: 2%;">
+                    <div class="col-sm-12 col-md-6">
+                        <div class="flex flex-column gap-2">
+                            <span class="p-float-label">
+                                <input class="form-input" pInputText id="email" aria-describedby="email-help" [(ngModel)]="register.correo_electronico" type="email" name="email" />
+                                <label for="email">Correo Electronico</label>
+                            </span>
+                        </div>
+                    </div>  
+                    <div class="col-sm-12 col-md-6" style="margin-top: 2%;">
                         <form [formGroup]="aFormGroup">
                             <ngx-recaptcha2 #captchaElem
                             [siteKey]="siteKey"
                             formControlName="recaptcha">
                             </ngx-recaptcha2>
                         </form>
-                    </div>
+                    </div> 
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
                     <div class="col-sm-12 col-md-4" style="margin-top: 2%;">
                         <p-button [disabled]="validarFormularioRegister" label="Registrar" [rounded]="true" severity="Registrar" (click)="registrarUsuario()"></p-button>        
                     </div>

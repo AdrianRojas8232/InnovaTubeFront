@@ -9,6 +9,25 @@
   background-color: #001c55;
 }
 
+::ng-deep .p-datepicker table td {
+  padding: 0.2rem !important;
+}
+::ng-deep .p-datepicker table td > span {
+  width: 1rem;
+  height:1rem;
+}
+::ng-deep .p-datepicker table {
+  font-size: 10pt;
+  margin: -0.143rem 0;
+}
+::ng-deep .p-datepicker .p-datepicker-header {
+  height:1rem;
+  padding: 0rem;
+  font-size: 10pt;
+  
+}
+
+
 ::ng-deep .p-card .p-card-content{
   padding: 0%;
 }
@@ -25,7 +44,7 @@
 }
 
 .card_register {
-    width: 80%;
+    width: 50%;
     text-align: center;
     padding: 20px;
     position: relative;
@@ -384,3 +403,4 @@ transition:all .3s ease-in-out;
 ::ng-deep .p-float-label{
   margin-top: 10%;
 }
+
