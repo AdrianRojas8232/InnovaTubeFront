@@ -24,6 +24,15 @@ export class LoginService {
     );
   }
 
+  public cambiarContrasenia(data: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/login/cambiarContrasenia`, data).pipe(
+      catchError(error => {
+        console.error('Error en el servicio:', error);
+        return throwError(error);
+      })
+    );
+  }
+
   public registrarUsuario(register: registroModelo): Observable<any> {
     return this.http.post(`${this.apiUrl}/login/registrar`, register).pipe(
       catchError(error => {

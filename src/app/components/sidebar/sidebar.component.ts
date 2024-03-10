@@ -50,7 +50,7 @@ export class SidebarComponent implements OnInit {
       if (usuarioGuardado) {
         this.LoginService.cerrarSesion({idUsuario:usuarioGuardado}).subscribe(
           (data: any) => {
-              if(data.estatus === -1){
+              if(data.status === -1){
                 this.messageService.add({ severity: 'error', summary: 'Error', detail: data.mensaje });
               }else{
                 localStorage.removeItem('usuario');

@@ -12,6 +12,7 @@ import { NgxCaptchaModule } from 'ngx-captcha';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
+import { CambiarContraseniaComponent } from './components/login/cambiar-contrasenia/cambiar-contrasenia.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 // PRIME NG
@@ -34,6 +35,7 @@ import { CalendarModule } from 'primeng/calendar';
     HomeComponent,
     LoginComponent,
     SidebarComponent,
+    CambiarContraseniaComponent,
   ],
   imports: [
     BrowserModule,

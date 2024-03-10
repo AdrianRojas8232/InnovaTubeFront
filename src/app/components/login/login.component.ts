@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { LoginService } from 'src/app/service/login/login.service';
 import { loginModel, registerModel, registroModelo } from'../../models/login';
 import { MessageService } from 'primeng/api'; 
 import { Router } from '@angular/router';
-import { ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormControl,AbstractControl, FormGroup, FormBuilder, Validators, ValidatorFn } from '@angular/forms';
+import { CambiarContraseniaComponent } from './cambiar-contrasenia/cambiar-contrasenia.component'
 
 function noSQLInjection(): ValidatorFn {
   return (control: AbstractControl): { [key: string]: any } | null => {
@@ -30,6 +30,8 @@ function noSQLInjection(): ValidatorFn {
 })
 
 export class LoginComponent implements OnInit {
+  @ViewChild(CambiarContraseniaComponent) cambiarContrasenia!: CambiarContraseniaComponent;
+
   protected aFormGroup!: FormGroup;
   // Almacena las contraseñas comunes
   contraseniasComunes: Set<string> = new Set();
@@ -121,7 +123,9 @@ export class LoginComponent implements OnInit {
         (data: any) => {
           console.log(data.status);
           console.log(data.mensaje);
-          if(data.status === -1){
+          if(data.status === 2){
+            this.cambiarContrasenia.abrirModal(data.mensaje, this.login);
+          }else if(data.status === -1){
             this.messageService.add({ severity: 'error', summary: 'Error', detail: data.mensaje });
           }else {
             console.log(data.idUsuario);            
@@ -279,11 +283,16 @@ export class LoginComponent implements OnInit {
     return { valido: estatus, mensaje: errorMessage };
   }
 
- public get mostrarErrorSQL(): boolean {
-  const sqlPattern = /SELECT.*FROM|DELETE.*FROM|UPDATE.*SET|INSERT.*INTO/i;
-  return !!(this.register.nombre && sqlPattern.test(this.register.nombre));
-}
+  public get mostrarErrorSQL(): boolean {
+    const sqlPattern = /SELECT.*FROM|DELETE.*FROM|UPDATE.*SET|INSERT.*INTO/i;
+    return !!(this.register.nombre && sqlPattern.test(this.register.nombre));
+  }
 
+  public emmiter(mensaje: string){
+    
+    this.limpiarFormularios();
+    this.messageService.add({ severity: 'success', summary: 'Success', detail: mensaje });
 
+  }
 
 }
