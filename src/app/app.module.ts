@@ -30,6 +30,7 @@ import { ScrollPanelModule } from 'primeng/scrollpanel';
 import { MenubarModule } from 'primeng/menubar';
 import { CalendarModule } from 'primeng/calendar';
 import { TableModule } from 'primeng/table';
+import { ImageModule } from 'primeng/image';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { TableModule } from 'primeng/table';
     ScrollPanelModule,
     MenubarModule,
     CalendarModule,
-    TableModule
+    TableModule,
+    ImageModule
 
   ],
   providers: [

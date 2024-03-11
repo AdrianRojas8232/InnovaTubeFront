@@ -43,7 +43,6 @@ export class LoginService {
   }
 
   public cerrarSesion(idUsuario: any): Observable<any> {
-    console.log("idusuario: "+idUsuario);
     return this.http.post(`${this.apiUrl}/login/cerrarSesion`, idUsuario).pipe(
       catchError(error => {
         console.error('Error en el servicio:', error);

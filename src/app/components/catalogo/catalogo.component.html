@@ -1,1 +1,50 @@
-<p>catalogo works!</p>
+<div class="hero"> 
+    <p-menubar class="menuSearch" >
+        <ng-template pTemplate="start">
+            <div class="userInfo">
+                <h2>{{ nombreUsuario }}</h2>
+                <h4>{{ nombreRol }} | Catálogo</h4>
+            </div>
+        </ng-template>
+        <ng-template pTemplate="end">
+        </ng-template>
+    </p-menubar>
+    
+    <div class="content">
+        <h3 class="tituloCatalogo">
+            <i class="pi pi-list" style="font-size: 1.5rem"></i>
+            Lista Usuarios 
+        </h3>
+        <p-scrollPanel [style]="{ width: '100%', height: '200px' }">
+            <div class="row align-items-center">    
+                <p-table [value]="listaUsuarios" [tableStyle]="{'min-width': '50rem'}" [scrollable]="true">
+                  <ng-template pTemplate="header" let-columns>
+                      <tr>
+                          <th>Nombre</th>
+                          <th>Tipo Usuario</th>
+                      </tr>
+                  </ng-template>
+                  <ng-template pTemplate="body" let-usuario let-columns="columns">
+                      <tr>
+                          <td>{{ usuario.nombre }}</td>
+                          <td>{{ usuario.status }}</td>
+                      </tr>
+                  </ng-template>
+                </p-table>
+                <div *ngIf="listaUsuarios.length === 0">
+                  No hay usuarios disponibles.
+                </div>
+            </div>
+        </p-scrollPanel>
+    </div>
+                
+    
+  
+  
+<div class="cube"></div>
+<div class="cube"></div>
+<div class="cube"></div>
+<div class="cube"></div>
+<div class="cube"></div>
+<div class="cube"></div>
+</div>

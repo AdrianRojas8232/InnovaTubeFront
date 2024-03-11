@@ -34,7 +34,6 @@ export class CambiarContraseniaComponent implements OnInit {
       
         const contraseñas = data.split('\n');
         contraseñas.forEach(contraseña => {
-          // console.log(contraseña.trim());
           this.contraseniasComunes.add(contraseña.trim());
         });
       },
@@ -55,8 +54,7 @@ export class CambiarContraseniaComponent implements OnInit {
       const resultadoValidacion = this.validarFormualrioRegistro();
       if (resultadoValidacion.valido){
         this.LoginService.cambiarContrasenia({contrasenia: this.contrasenia, correo: this.correo}).subscribe(
-          (data: any) => {
-            console.log(data);            
+          (data: any) => {          
             if (data.estatus === -1) {
               this.messageService.add({ severity: 'error', summary: 'Error', detail: data.mensaje });
             }else {
@@ -64,7 +62,6 @@ export class CambiarContraseniaComponent implements OnInit {
               this.newItemEvent.emit(data.mensaje);
               
             }
-            console.log("entra aqui :D");
           },
           (error: any) => {
             console.error('Error:', error);

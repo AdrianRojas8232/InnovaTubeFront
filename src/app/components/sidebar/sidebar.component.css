@@ -14,11 +14,26 @@
     font-family: 'Montserrat', sans-serif;
     display: flex;
   }
-  
-  .p-button-sidebar {
-    position: fixed;
-    top: 10px;
-    left: 10px;
+  .sub-title{
+    margin: 0;
+    margin-right: 50%;
+    margin-bottom: 1%;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    color:brown;
+  }
+  ::ng-deep .btnRutas .p-ripple {
+    background-color: transparent !important;
+    border: none !important;
+    color: inherit !important;
+    padding: 0 !important;
+  }
+  ::ng-deep .btnRutas :hover{
+    background-color: #9c5fff97 !important;
+    border: none !important;
+    color: inherit !important;
+    padding: 0 !important;
   }
 
   .btnCerrarSesion{

@@ -72,9 +72,7 @@ export class HomeComponent implements OnInit {
       this.videoService.buscarVideo(this.buscar as string).subscribe(
         (data: any) => {
           this.arrayVideos = data.items;
-            // console.log(this.arrayVideos);
-            console.log(data.items[0].snippet);
-            
+            console.log(data.items[0].snippet);            
         },
         (error: any) => {
           console.error('Error:', error);

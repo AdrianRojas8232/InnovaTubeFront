@@ -93,7 +93,6 @@ export class LoginComponent implements OnInit {
     
       const contraseñas = data.split('\n');
       contraseñas.forEach(contraseña => {
-        // console.log(contraseña.trim());
         this.contraseniasComunes.add(contraseña.trim());
       });
     },
@@ -107,8 +106,6 @@ export class LoginComponent implements OnInit {
     try {
       this.LoginService.inicioDeSesion(this.login).subscribe(
         (data: any) => {
-          console.log(data.status);
-          console.log(data.mensaje);
           if(data.status === 2){
             this.cambiarContrasenia.abrirModal(data.mensaje, this.login);
           }else if(data.status === -1){
@@ -151,16 +148,12 @@ export class LoginComponent implements OnInit {
         this.LoginService.registrarUsuario(this.registroService).subscribe(
           (data: any) => {
             if (data.estatus === -1) {
-              console.log("entra aqui :(");
               this.messageService.add({ severity: 'error', summary: 'Error', detail: data.mensaje });
             }else {
-              console.log("entra aqui :)");
-              console.log(data);
               this.messageService.add({ severity: 'success', summary: 'Success', detail: data.mensaje });
               this.registerVisible = false;
               this.loginVisible = true;
             }
-            console.log("entra aqui :D");
           },
           (error: any) => {
             console.error('Error:', error);

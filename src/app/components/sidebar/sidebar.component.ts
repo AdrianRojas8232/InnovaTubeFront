@@ -12,11 +12,11 @@ import { RouterModule, Routes } from '@angular/router';
 })
 
 export class SidebarComponent implements OnInit {
+  public nombreUsuario: string = "";
+  public nombreRol: string = "";
+  public idRol: string = "";
+
   public sidebarVisible: boolean = false;
-  public usuarioGuardado = {
-    usuario:"",
-    correo:""
-  };
 
   constructor(
     public LoginService: LoginService,
@@ -25,26 +25,31 @@ export class SidebarComponent implements OnInit {
   ){
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    const usuarioGuardado = localStorage.getItem('usuario');
+
+    const nombreUsuarioLocal = localStorage.getItem('nombreUsuario');
+    const nombreRolLocal = localStorage.getItem('nombreRol');
+    const idRolLocal = localStorage.getItem('rolUsuario');
+    if (nombreUsuarioLocal !== null && nombreRolLocal !== null && idRolLocal!==null) {
+      this.nombreUsuario = nombreUsuarioLocal.toString();
+      this.nombreRol = nombreRolLocal.toString();
+      this.idRol = idRolLocal.toString();
+    }
+
+  }
 
   public mostrarMenu(): void{
-
     this.sidebarVisible = true;    
-    console.log(this.usuarioGuardado);
-    
-    if(this.usuarioGuardado.usuario === ""){  
-      const usuarioJson = localStorage.getItem('usuario') as string;    
-      console.log(usuarioJson);
-      this.usuarioGuardado = JSON.parse(usuarioJson);
-      console.log(this.usuarioGuardado);
-    }
-    
   }
-  public cerrarSesion2(){
-    localStorage.removeItem('usuario');
-    this.router.navigate(['']);
+  public ocultarMenu(): void{
+    this.sidebarVisible = false;    
+  }
+  public irRuta(ruta:string){
+    this.router.navigate([ruta]);
+    this.ocultarMenu();
+  }
 
-  }
   public cerrarSesion(){
     try {
       const usuarioGuardado = localStorage.getItem('usuario');
