@@ -49,8 +49,7 @@ export class HomeComponent implements OnInit {
     try {
       this.videoService.obtenerListaUsuarios().subscribe(
         (data: any) => {
-          console.log("DATA HOME: ", data.usuarios);
-          this.listaUsuarios = data.usuarios; // Asignar directamente la lista de usuarios
+          this.listaUsuarios = data.usuarios;
         },
         (error: any) => {
           console.error('Error al obtener la lista de usuarios:', error);
