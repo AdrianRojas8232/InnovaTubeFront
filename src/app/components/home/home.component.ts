@@ -10,6 +10,11 @@ import { MessageService } from 'primeng/api';
   providers: [MessageService]
 })
 export class HomeComponent implements OnInit {
+  public listaUsuarios: any[] = [];
+  public nombreUsuario: string = "";
+  public nombreRol: string = "";
+  public idRol: string = "";
+
   public buscar: String;
   public arrayVideos: any = [];
   constructor(
@@ -22,11 +27,41 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     const usuarioGuardado = localStorage.getItem('usuario');
+
+    const nombreUsuarioLocal = localStorage.getItem('nombreUsuario');
+    const nombreRolLocal = localStorage.getItem('nombreRol');
+    const idRolLocal = localStorage.getItem('rolUsuario');
+    if (nombreUsuarioLocal !== null && nombreRolLocal !== null && idRolLocal!==null) {
+      this.nombreUsuario = nombreUsuarioLocal.toString();
+      this.nombreRol = nombreRolLocal.toString();
+      this.idRol = idRolLocal.toString();
+    }
+
     if (usuarioGuardado === null) {
       this.router.navigate(['']);
     }
     this.buscarVideo();
+    this.obtenerListaUsuarios();
   }
+
+
+  public obtenerListaUsuarios() {
+    try {
+      this.videoService.obtenerListaUsuarios().subscribe(
+        (data: any) => {
+          console.log("DATA HOME: ", data.usuarios);
+          this.listaUsuarios = data.usuarios; // Asignar directamente la lista de usuarios
+        },
+        (error: any) => {
+          console.error('Error al obtener la lista de usuarios:', error);
+        }
+      );
+    } catch (error) {
+      console.error('Error inesperado:', error);      
+    }  
+  }
+  
+  
 
   public buscarVideo():void {
     // this.buscar = "la pension";

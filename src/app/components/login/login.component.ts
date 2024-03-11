@@ -7,20 +7,6 @@ import { HttpClient } from '@angular/common/http';
 import { FormControl,AbstractControl, FormGroup, FormBuilder, Validators, ValidatorFn } from '@angular/forms';
 import { CambiarContraseniaComponent } from './cambiar-contrasenia/cambiar-contrasenia.component'
 
-function noSQLInjection(): ValidatorFn {
-  return (control: AbstractControl): { [key: string]: any } | null => {
-    if (control instanceof FormControl) {
-      const sqlPattern = /SELECT.*FROM|DELETE.*FROM|UPDATE.*SET|INSERT.*INTO/i;
-      const value = control.value;
-      const invalid = sqlPattern.test(value);
-      return invalid ? { 'sqlInjection': { value: value } } : null;
-    }
-    return null;
-  };
-}
-
-
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -87,13 +73,13 @@ export class LoginComponent implements OnInit {
     this.presionado = false;
     this.aFormGroup = this.formBuilder.group({
       recaptcha: ['', Validators.required],
-      nombre: ['', [Validators.required, noSQLInjection()]],
-      ap_paterno: ['', [Validators.required, noSQLInjection()]],
-      ap_materno: ['', [Validators.required, noSQLInjection()]],
-      correo_electronico: ['', [Validators.required, Validators.email, noSQLInjection()]], // Validators.email para validar el formato de correo electrónico
+      nombre: ['', [Validators.required]],
+      ap_paterno: ['', [Validators.required]],
+      ap_materno: ['', [Validators.required]],
+      correo_electronico: ['', [Validators.required, Validators.email]], // Validators.email para validar el formato de correo electrónico
       fecha_nacimiento: ['', Validators.required],
-      contrasenia: ['', [Validators.required, noSQLInjection()]],
-      confirmarContrasenia: ['', [Validators.required, noSQLInjection()]],
+      contrasenia: ['', [Validators.required]],
+      confirmarContrasenia: ['', [Validators.required]],
     });
     const usuarioGuardado = localStorage.getItem('usuario');
     if (usuarioGuardado) {
@@ -128,9 +114,13 @@ export class LoginComponent implements OnInit {
           }else if(data.status === -1){
             this.messageService.add({ severity: 'error', summary: 'Error', detail: data.mensaje });
           }else {
-            console.log(data.idUsuario);            
+                       
             this.messageService.add({ severity: 'success', summary: 'Success', detail: data.mensaje });
             localStorage.setItem('usuario', data.idUsuario);
+            localStorage.setItem('rolUsuario', data.rolUsuario);
+            localStorage.setItem('nombreRol', data.nombreRol);
+            localStorage.setItem('nombreUsuario', data.nombreUsuario);
+
             this.router.navigate(['/home']);
           }
         },
@@ -281,11 +271,6 @@ export class LoginComponent implements OnInit {
       estatus = false;
     } 
     return { valido: estatus, mensaje: errorMessage };
-  }
-
-  public get mostrarErrorSQL(): boolean {
-    const sqlPattern = /SELECT.*FROM|DELETE.*FROM|UPDATE.*SET|INSERT.*INTO/i;
-    return !!(this.register.nombre && sqlPattern.test(this.register.nombre));
   }
 
   public emmiter(mensaje: string){

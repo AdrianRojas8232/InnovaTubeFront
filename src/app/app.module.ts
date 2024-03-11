@@ -28,6 +28,7 @@ import { DialogModule } from 'primeng/dialog';
 import { ScrollPanelModule } from 'primeng/scrollpanel';
 import { MenubarModule } from 'primeng/menubar';
 import { CalendarModule } from 'primeng/calendar';
+import { TableModule } from 'primeng/table';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { CalendarModule } from 'primeng/calendar';
     DialogModule,
     ScrollPanelModule,
     MenubarModule,
-    CalendarModule
+    CalendarModule,
+    TableModule
 
   ],
   providers: [

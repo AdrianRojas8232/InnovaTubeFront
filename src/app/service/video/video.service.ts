@@ -23,6 +23,15 @@ export class VideoService {
       })
     );
   }
+  obtenerListaUsuarios(): Observable<any> {
+    const url = `${this.apiUrl}/login/listaUsuarios`;
+    return this.http.get(url).pipe(
+      catchError((error) => {
+        console.error('Error en el servicio al obtener la lista de usuarios:', error);
+        return throwError(error);
+      })
+    );
+  }
 
   // public registrarUsuario(register: registerModel): Observable<any> {
   //   return this.http.post(`${this.apiUrl}/login/registrar`, register).pipe(
