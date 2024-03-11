@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/service/login/login.service';
 import { MessageService } from 'primeng/api'; 
+import { RouterModule, Routes } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',

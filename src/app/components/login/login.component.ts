@@ -5,7 +5,7 @@ import { MessageService } from 'primeng/api';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { FormControl,AbstractControl, FormGroup, FormBuilder, Validators, ValidatorFn } from '@angular/forms';
-import { CambiarContraseniaComponent } from './cambiar-contrasenia/cambiar-contrasenia.component'
+import { CambiarContraseniaComponent } from './cambiar-contrasenia/cambiar-contrasenia.component';
 
 @Component({
   selector: 'app-login',
